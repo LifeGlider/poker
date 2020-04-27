@@ -3,7 +3,7 @@
 # This class will contain all required information about card: value, face, suit
 class Card
   attr_reader :value, :face, :suit
-  
+
   def initialize(value, face, suit)
     @value = value
     @face = face
