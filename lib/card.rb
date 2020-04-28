@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # card.rb
 
 # This class will contain all required information about card: value, face, suit
@@ -9,11 +11,11 @@ class Card
     @face = face
     @suit = suit
   end
-  
+
   def <=>(other)
     @value <=> other.value
   end
-  
+
   def to_s
     "#{face.capitalize} of #{suit.capitalize}"
   end

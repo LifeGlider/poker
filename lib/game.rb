@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 # game.rb
 # rubocop:disable Layout/LineLength
 
 load 'card.rb'
 
+# This class contains logic for poker game
+# Object recieves 'hand' and 'table' cards
+# Than it calculates winning combo and it's name
 class Game
   attr_reader :hand, :table, :win_combo_name, :win_cards
 
@@ -40,6 +45,8 @@ class Game
     @win_combo_name = winner[0]
     @win_cards = winner[1]
   end
+
+  private
 
   def hand_table_mix
     (@hand + @table).sort_by(&:value).combination(5)

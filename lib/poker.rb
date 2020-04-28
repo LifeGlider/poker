@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
+# poker.rb
+
 load 'poker/version.rb'
 load 'card.rb'
+load 'deck.rb'
 load 'game.rb'
 
+# Main module for game
+# Shows hand, table and winning combo
 module Poker
   class Error < StandardError; end
-  FACES = %i[two three four five six seven eight nine ten jack queen king ace].freeze
-  SUITS = %i[spades clubs hearts diamonds].freeze
 
-  deck = FACES.flat_map.with_index { |f, v| SUITS.map { |s| Card.new(v + 2, f, s) } }
-
-  hand = deck.sample(2)
-  deck -= hand
-
-  table = deck.sample(5)
+  deck = Deck.new
+  hand = deck.hand
+  table = deck.table
 
   puts 'HAND:'
   puts '-'
